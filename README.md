@@ -38,7 +38,7 @@ x.append(function(ctx1) {
 }).append(function(ctx) {
 	// This function will not be called until ctx1.end() and ctx2.end()
 	// be called, this ensure all the dependencies got satisfied.
-	$.get('/second/ + F(data), function(obj) {
+	$.get('/second/' + F(data), function(obj) {
 		data = obj;
 		ctx.end();
 	}, 'json');
@@ -51,6 +51,6 @@ If you're using node.js, use it like that:
 
 ```javascript
 var asyncchain = require('asyncchain');
-var x = new x.AsyncChain();
+var x = new asyncchain.AsyncChain();
 //...
 ```
