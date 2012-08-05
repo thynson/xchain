@@ -20,25 +20,22 @@ and longer?  Yeah, indent will go deeper and deeper, and more and more sucks.
 So with **AsyncChain**, you do write the code like this:
 
 ```javascript
-var x = new AsyncChain();
-var data = {};
-
-x.append(function(ctx1) {
+beginAsyncChain(function(ctx1) {
 	$.get('/first/a', function(obj) {
-		data.a = obj
+		ctx1.data.a = obj
 		ctx1.end();
 		// If error occured, you can also call ctx1.abort(), all the
 		// following jobs will be canceled(not including parallel jobs)
 	}, 'json');
 }, function(ctx2) {
 	$.get('/first/b', function(obj) {
-		data.b = obj
+		ctx2.data.b = obj
 		ctx2.end();
 	}, 'json');
 }).append(function(ctx) {
 	// This function will not be called until ctx1.end() and ctx2.end()
 	// be called, this ensure all the dependencies got satisfied.
-	$.get('/second/' + F(data), function(obj) {
+	$.get('/second/' + F(ctx.data), function(obj) {
 		data = obj;
 		ctx.end();
 	}, 'json');
@@ -50,7 +47,10 @@ x.append(function(ctx1) {
 If you're using node.js, use it like that:
 
 ```javascript
-var asyncchain = require('asyncchain');
-var x = new asyncchain.AsyncChain();
-//...
+var asch = require('asyncchain');
+asch.beginAsyncChain(function() {
+	//...
+}).append(function() {
+	// ...
+});;
 ```
