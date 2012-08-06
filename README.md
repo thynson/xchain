@@ -20,7 +20,7 @@ and longer?  Yeah, indent will go deeper and deeper, and more and more sucks.
 So with **AsyncChain**, you do write the code like this:
 
 ```javascript
-beginAsyncChain(function(ctx1) {
+AsyncChain.create().append(function(ctx1) {
 	$.get('/first/a', function(obj) {
 		ctx1.data.a = obj
 		ctx1.end();
@@ -41,16 +41,16 @@ beginAsyncChain(function(ctx1) {
 	}, 'json');
 }).append(function(ctx) {
 	//...
-})//...
+}).begin();
 ```
 
 If you're using node.js, use it like that:
 
 ```javascript
 var asch = require('asyncchain');
-asch.beginAsyncChain(function() {
+asch.create().append(function() {
 	//...
 }).append(function() {
 	// ...
-});;
+}).begin();
 ```
