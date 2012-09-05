@@ -11,6 +11,12 @@
 * Only node.js is supported now. For browsers, another project named
   jquery-xchain will be born.
 
+## Install
+By simply type
+```shell
+npm install xchain
+```
+
 ## Demos
 
 You can go to see the testcases to know how to use it, they are very simple
