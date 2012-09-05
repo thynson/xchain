@@ -1,56 +1,20 @@
-AsyncChain
-==========
+# xchain
 
-AsyncChain is designed for simplifying async logic.
+## Changes
 
-Considering the following code(I expect you have some experiences of jquery,
-but if not, it's okay too):
-```javascript
-$.get('/index', function(obj){
-	// Because GET /details/{index} depends on GET /index we have to do this
-	// after GET /index completed.
-	$.get('/detail/' + obj.index, function(obj) {
+* This project is originally named as AsyncChain, which is a little long.
 
-	}, 'json');
-}, 'json');
-```
+* Inspired by [step], I desided to make API more clean. But still the design
+  is very different from [step] and [flow-js], as I consider my way to handle
+  error in async flow is more clear.
 
-But what if there are multriple dependencies, and dependency chain got longer
-and longer?  Yeah, indent will go deeper and deeper, and more and more sucks.
-So with **AsyncChain**, you do write the code like this:
+* Only node.js is supported now. For browsers, another project named
+  jquery-xchain will be born.
 
-```javascript
-AsyncChain.create().append(function(ctx1) {
-	$.get('/first/a', function(obj) {
-		ctx1.data.a = obj
-		ctx1.end();
-		// If error occured, you can also call ctx1.abort(), all the
-		// following jobs will be canceled(not including parallel jobs)
-	}, 'json');
-}, function(ctx2) {
-	$.get('/first/b', function(obj) {
-		ctx2.data.b = obj
-		ctx2.end();
-	}, 'json');
-}).append(function(ctx) {
-	// This function will not be called until ctx1.end() and ctx2.end()
-	// be called, this ensure all the dependencies got satisfied.
-	$.get('/second/' + F(ctx.data), function(obj) {
-		data = obj;
-		ctx.end();
-	}, 'json');
-}).append(function(ctx) {
-	//...
-}).begin();
-```
+## Demos
 
-If you're using node.js, use it like that:
+You can go to see the testcases to know how to use it, they are very simple
+and cover all points.
 
-```javascript
-var asch = require('asyncchain');
-asch.create().append(function() {
-	//...
-}).append(function() {
-	// ...
-}).begin();
-```
+[step]: http://github.com/creationix/step
+[flow-js]: http://github.com/willconant/flow-js
