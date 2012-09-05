@@ -1,6 +1,16 @@
 {
 	"name" : "xchain",
-	"version" : "0.4.0",
+	"description" : "A handy and powerful async flow helper",
 	"author" : "Thynson <lanxingcan@gmail.com>",
-	"main" : "./lib/main.js"
+	"keyword" : [
+		"async",
+		"flow"
+	],
+	"repository" : {
+		"type" : "git",
+		"url" : "https://github.com/thynson/xchain.git"
+	},
+	"version" : "0.4.0",
+	"main" : "./lib/main.js",
+	"license" : "ISC"
 }
