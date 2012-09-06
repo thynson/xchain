@@ -22,5 +22,11 @@ npm install xchain
 You can go to see the testcases to know how to use it, they are very simple
 and cover all points.
 
+## License
+
+[ISC] license, which is BSD-like and with simpler text.
+
 [step]: http://github.com/creationix/step
 [flow-js]: http://github.com/willconant/flow-js
+[ISC]: http://www.isc.org/software/license
+
