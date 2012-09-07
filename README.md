@@ -2,14 +2,19 @@
 
 ## Changes
 
-* This project is originally named as AsyncChain, which is a little long.
 
-* Inspired by [step], I desided to make API more clean. But still the design
-  is very different from [step] and [flow-js], as I consider my way to handle
-  error in async flow is more clear.
+* 0.4.2 -- Sep. 8th, 2012
+    * Add a way to handle async exception correctly. see test-07.js
 
-* Only node.js is supported now. For browsers, another project named
-  jquery-xchain will be born.
+* 0.4.0 -- Sep. 5th, 2012
+    * This project is originally named as AsyncChain, which is a little long.
+
+    * Inspired by [step], I desided to make API more clean. But still the design
+      is very different from [step] and [flow-js], as I consider my way to handle
+      error in async flow is more clear.
+
+    * Only node.js is supported now. For browsers, another project named
+      jquery-xchain will be born.
 
 ## Install
 By simply type
