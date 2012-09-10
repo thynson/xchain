@@ -10,7 +10,7 @@
 		"type" : "git",
 		"url" : "https://github.com/thynson/xchain.git"
 	},
-	"version" : "0.4.2",
+	"version" : "0.4.3",
 	"main" : "./lib/main.js",
 	"license" : "ISC"
 }

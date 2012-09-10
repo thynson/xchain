@@ -2,6 +2,23 @@
 
 ## Changes
 
+* 0.4.3 -- Sep, 10th, 2012
+    * Redefine the parameter form of xchain, now you can write
+
+        ``` javascript
+        xchain(
+            [1, 2, 3], function(next, elem, index) {
+                // ...
+            },
+            { a : 1, b : 2}, function(next, property, value) {
+                // ...
+            }, function(next) {
+                // ...
+            }
+        )(
+            // ...
+        )
+        ```
 
 * 0.4.2 -- Sep. 8th, 2012
     * Add a way to handle async exception correctly. see test-07.js
